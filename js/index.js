@@ -12,6 +12,15 @@ var kanji_scroll_frecuency_right;
 var current_choosed_side = -1; // -1 = none, 0 = left, 1 = right
 
 document.addEventListener("DOMContentLoaded", (event) => {
+    // Remove kanjis without frequency data
+    for (var i = 0; i < shuffled_kanji_list.length; i++) {
+        if (kanji[shuffled_kanji_list[i]].freq == undefined) {
+            shuffled_kanji_list.splice(i, 1);
+            i--;
+        }
+    }
+
+    document.getElementById("total_kanji").innerHTML = shuffled_kanji_list.length;
     best_strike = localStorage.getItem("best_strike") || 0;
 
     kanji_scroll_title_left = document.getElementById("kanji_scroll_title_left");
@@ -94,9 +103,9 @@ function waitForNextKanji() {
 function nextKanji() {
     printKanjis();
 
-        document.getElementById("next_button").disabled = true;
-        document.getElementById("left_button").disabled = false;
-        document.getElementById("right_button").disabled = false;
+    document.getElementById("next_button").disabled = true;
+    document.getElementById("left_button").disabled = false;
+    document.getElementById("right_button").disabled = false;
 }
 
 function saveUserData() {
