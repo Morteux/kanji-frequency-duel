@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     document.getElementById("total_kanji").innerHTML = shuffled_kanji_list.length;
-    best_strike = localStorage.getItem("best_strike") || 0;
+    best_strike = localStorage.getItem("best_strike");
+    best_strike = best_strike == null ? 0 : best_strike;
+    document.getElementById("best_strike").innerHTML = best_strike;
 
     kanji_scroll_title_left = document.getElementById("kanji_scroll_title_left");
     kanji_scroll_frecuency_left = document.getElementById("kanji_scroll_frecuency_left");
@@ -113,6 +115,9 @@ function saveUserData() {
 }
 
 function restart() {
+    best_strike = Math.max(best_strike, today_strike);
+
     saveUserData();
+
     window.location.reload();
 }
