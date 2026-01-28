@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Japanese, Hiragana, Katakana, Kanji, Kana, Memorize, Cards, Test, Flashcards, Words">
+    <meta name="authors" content="Ignacio Meléndez Lapi">
+
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <script src="json/kanji.js"></script>
+    <script src="js/index.js"></script>
+
+    <title>Kanji frequency duel</title>
+</head>
+
+<body>
+    <div id="main" class="main">
+
+        <div id="title" class="title">
+            Kanji frequency duel
+        </div>
+
+        <div id="strike_container" class="strike_container">Today strike: <span id="today_strike">0</span>/<span
+                id="best_strike">0</span></div>
+
+        <div id="kanjis_container" class="kanjis_container">
+            <div class="kanji_scroll left_kanji">
+                <div id="kanji_scroll_title_left" class="kanji_scroll_title"></div>
+                <div id="kanji_scroll_frecuency_left" class="kanji_scroll_frecuency"></div>
+            </div>
+            <div class="kanji_scroll right_kanji">
+                <div id="kanji_scroll_title_right" class="kanji_scroll_title"></div>
+                <div id="kanji_scroll_frecuency_right" class="kanji_scroll_frecuency"></div>
+            </div>
+        </div>
+
+        <div id="choose_kanji_button_container" class="choose_kanji_button_container btn-group">
+            <button id="left_button" class="button_left" name="button" onclick="chooseKanji(0);">←</button>
+            <button id="next_button" class="button_middle" name="button" onclick="nextKanji();" disabled>Next</button>
+            <button id="restart_button" class="button_middle hidden" name="button" onclick="restart();">Restart</button>
+            <button id="right_button" class="button_right" name="button" onclick="chooseKanji(1);">→</button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+:root {
+    --button-left: #ff4242;
+    --button-left-shadow: #d83737;
+
+    --button-middle: #606060;
+    --button-middle-shadow: #282828;
+
+    --button-right: #34529f;
+    --button-right-shadow: #253a71;
+
+    --primary-shadow: rgb(71, 71, 71);
+    --secondary-shadow: rgb(27, 27, 27);
+
+    --background-color: #f9ecd7;
+
+    --font-color: rgb(34, 34, 34);
+}
+
+@font-face {
+    font-family: 'ackaisyo';
+    src: url('../fonts/ackaisyo.ttf');
+}
+
+
+html {
+    font-size: 16px;
+    /* 1rem = 16px */
+}
+
+body {
+    background-color: var(--background-color);
+
+    padding: 0;
+    margin: 0;
+
+    font-family: ackaisyo, sans-serif;
+    color: var(--font-color);
+}
+
+p {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100vh;
+
+    background-color: transparent;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    font-size: 5rem;
+    color: var(--font-color);
+
+    background-color: transparent;
+
+    height: 20vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.strike_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 2rem;
+    color: var(--font-color);
+
+    height: 10vh;
+}
+
+.strike_container>span {
+    font-size: 2.5rem;
+    color: var(--font-color);
+}
+
+.choose_kanji_button_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+
+    height: 10vh;
+}
+
+.kanjis_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+
+    width: 80%;
+}
+
+.kanji_scroll {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+
+    width: 20vw;
+    height: 50vh;
+}
+
+.kanji_scroll_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    font-size: 10vw;
+    color: var(--font-color);
+}
+
+.kanji_scroll_frecuency {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    font-size: 5vw;
+    color: var(--font-color);
+}
+
+.left_kanji {
+    background-image: url('../images/scroll_red.svg');
+}
+
+.right_kanji {
+    background-image: url('../images/scroll_blue.svg');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Button styles */
+button {
+    font-family: ackaisyo, sans-serif;
+}
+
+.button_left {
+    background-color: var(--button-left);
+    border: 1px solid var(--button-left-shadow);
+    box-shadow: 0 9px var(--button-left-shadow);
+}
+
+.button_left:hover {
+    background-color: var(--button-left-shadow);
+}
+
+.button_left:disabled {
+    background-color: var(--button-left-shadow);
+}
+
+.button_middle {
+    background-color: var(--button-middle);
+    border: 1px solid var(--button-middle-shadow);
+    box-shadow: 0 9px var(--button-middle-shadow);
+}
+
+.button_middle:hover {
+    background-color: var(--button-middle-shadow);
+}
+
+.button_middle:disabled {
+    background-color: var(--button-middle-shadow);
+}
+
+.button_right {
+    background-color: var(--button-right);
+    border: 1px solid var(--button-right-shadow);
+    box-shadow: 0 9px var(--button-right-shadow);
+}
+
+.button_right:hover {
+    background-color: var(--button-right-shadow);
+}
+
+.button_right:disabled {
+    background-color: var(--button-right-shadow);
+}
+
+.btn-group button {
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    float: left;
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 769px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .strike_container {
+        font-size: 1.5rem;
+    }
+
+    .strike_container>span {
+        font-size: 2rem;
+    }
+
+    .kanjis_container {
+        width: 100%;
+    }
+
+    .kanji_scroll {
+        width: 40vw;
+        height: 50vh;
+    }
+
+    .kanji_scroll_title {
+        font-size: 15vw;
+    }
+
+    .kanji_scroll_frecuency {
+        font-size: 7.5vw;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 400px) {
+    .kanji_scroll_title {
+        font-size: 20vw;
+    }
+
+    .kanji_scroll_frecuency {
+        font-size: 10vw;
+    }
+}
