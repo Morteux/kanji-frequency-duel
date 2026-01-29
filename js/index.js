@@ -34,6 +34,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
     printKanjis();
 });
 
+document.addEventListener('keyup', function (event) {
+    if (event.key === 'ArrowLeft' && document.getElementById("left_button").disabled == false) {
+        event.preventDefault();
+
+        chooseKanji(0);
+    } else if (event.key === 'ArrowRight' && document.getElementById("right_button").disabled == false) {
+        event.preventDefault();
+
+        chooseKanji(1);
+    } else if (event.code === 'Space' || event.code === 'Spacebar') {
+        if (document.getElementById("next_button").disabled == false) {
+            event.preventDefault();
+
+            nextKanji();
+        } else if (document.getElementById("restart_button").classList.contains("hidden") == false) {
+            event.preventDefault();
+
+            restart();
+        }
+    }
+});
+
 window.addEventListener('beforeunload', (event) => {
     saveUserData();
 });
