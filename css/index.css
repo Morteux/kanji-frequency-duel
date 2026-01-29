@@ -159,7 +159,26 @@ p {
     background-image: url('../images/scroll_blue.svg');
 }
 
+.omedetou_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+    text-align: center;
+
+    margin-top: 20px;
+
+    width: 60%;
+}
+
+.omedetou_text_big {
+    font-size: 5vw;
+}
+
+.omedetou_text_small {
+    font-size: 3vw;
+}
 
 
 
@@ -285,6 +304,18 @@ button {
     .kanji_scroll_frecuency {
         font-size: 7.5vw;
     }
+
+    .omedetou_container {
+        width: 70%;
+    }
+
+    .omedetou_text_big {
+        font-size: 8vw;
+    }
+
+    .omedetou_text_small {
+        font-size: 4vw;
+    }
 }
 
 
@@ -304,5 +335,17 @@ button {
 
     .kanji_scroll_frecuency {
         font-size: 10vw;
+    }
+
+    .omedetou_container {
+        width: 80%;
+    }
+
+    .omedetou_text_big {
+        font-size: 10vw;
+    }
+
+    .omedetou_text_small {
+        font-size: 8vw;
     }
 }

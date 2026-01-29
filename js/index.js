@@ -143,11 +143,23 @@ function waitForNextKanji() {
 }
 
 function nextKanji() {
-    printKanjis();
+    if (shuffled_kanji_list.length >= 2) {
+        printKanjis();
 
-    document.getElementById("next_button").disabled = true;
-    document.getElementById("left_button").disabled = false;
-    document.getElementById("right_button").disabled = false;
+        document.getElementById("next_button").disabled = true;
+        document.getElementById("left_button").disabled = false;
+        document.getElementById("right_button").disabled = false;
+    } else {
+        document.getElementById("next_button").classList.add("hidden");
+        document.getElementById("left_button").disabled = true;
+        document.getElementById("right_button").disabled = true;
+
+        document.getElementById("restart_button").classList.remove("hidden");
+
+        document.getElementById("kanjis_container").classList.add("hidden");
+        document.getElementById("omedetou_container").classList.remove("hidden");
+        
+    }
 }
 
 function saveUserData() {
