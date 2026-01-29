@@ -1,15 +1,14 @@
 var best_strike = 0;
-
 var today_strike = 0;
+
 var shuffled_kanji_list = Object.keys(kanji).sort(() => 0.5 - Math.random());
 
-var kanji_scroll_title_left;
-var kanji_scroll_frecuency_left;
+var kanji_scroll_title_left, kanji_scroll_frecuency_left;
+var kanji_scroll_title_right, kanji_scroll_frecuency_right;
 
-var kanji_scroll_title_right;
-var kanji_scroll_frecuency_right;
+var current_choosed_side = -1; // -1 = none, 0 = left, 1 = right1
 
-var current_choosed_side = -1; // -1 = none, 0 = left, 1 = right
+var removed_kanjis_from_bottom, removed_kanjis_from_top;
 
 document.addEventListener("DOMContentLoaded", (event) => {
     // Remove kanjis without frequency data
@@ -20,17 +19,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
+    // Remove kanjis from top and bottom of frequency list
+    removed_kanjis_from_bottom = getRandomIntInclusive(0, (shuffled_kanji_list.length / 10) - 1);
+    removed_kanjis_from_top = getRandomIntInclusive(0, (shuffled_kanji_list.length / 10) - 1);
+    console.log("Removed kanjis from bottom: " + removed_kanjis_from_bottom);
+    console.log("Removed kanjis from top: " + removed_kanjis_from_top);
+
+    shuffled_kanji_list.splice(shuffled_kanji_list.length - removed_kanjis_from_top);
+    shuffled_kanji_list.splice(0, removed_kanjis_from_bottom);
+    console.log("Final kanji list length: " + shuffled_kanji_list.length);
+
+    // Set total kanji and best strike
     document.getElementById("total_kanji").innerHTML = shuffled_kanji_list.length;
     best_strike = localStorage.getItem("best_strike");
     best_strike = best_strike == null ? 0 : best_strike;
     document.getElementById("best_strike").innerHTML = best_strike;
 
+    // Get elements
     kanji_scroll_title_left = document.getElementById("kanji_scroll_title_left");
     kanji_scroll_frecuency_left = document.getElementById("kanji_scroll_frecuency_left");
 
     kanji_scroll_title_right = document.getElementById("kanji_scroll_title_right");
     kanji_scroll_frecuency_right = document.getElementById("kanji_scroll_frecuency_right");
 
+    // Print first kanjis
     printKanjis();
 });
 
@@ -59,6 +71,12 @@ document.addEventListener('keyup', function (event) {
 window.addEventListener('beforeunload', (event) => {
     saveUserData();
 });
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function printKanjis() {
     // Print left kanji
