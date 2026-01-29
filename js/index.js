@@ -55,7 +55,7 @@ document.addEventListener('keyup', function (event) {
         event.preventDefault();
 
         chooseKanji(1);
-    } else if (event.code === 'Space' || event.code === 'Spacebar') {
+    } else if (event.key === 'ArrowDown' || event.code === 'Space' || event.code === 'Spacebar') {
         if (document.getElementById("next_button").disabled == false) {
             event.preventDefault();
 
